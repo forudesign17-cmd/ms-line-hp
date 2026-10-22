@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 確認用：検索結果に出さない設定。本番公開時はこの1行を削除してください -->
+<meta name="robots" content="noindex, nofollow">
+<title>お問い合わせ｜M・Sライン株式会社</title>
+<meta name="description" content="M・Sライン株式会社へのお問い合わせ。倉庫保管、物流センターの運営、輸送車両の手配について、お気軽にご相談ください。">
+<link rel="canonical" href="https://www.example.com/contact.html">
+<meta name="theme-color" content="#1E2A3A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="M・Sライン株式会社">
+<meta property="og:title" content="お問い合わせ｜M・Sライン株式会社">
+<meta property="og:description" content="倉庫保管、物流センターの運営、輸送車両の手配について、お気軽にご相談ください。">
+<meta property="og:url" content="https://www.example.com/contact.html">
+<meta property="og:image" content="https://www.example.com/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "お問い合わせ", "item": "https://www.example.com/contact.html" }
+  ]
+}
+</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
+      <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#2D6CB5"/><text x="24" y="30" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#fff">MSL</text></svg>
+      <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
+      <span class="menu-btn__bar"></span><span class="menu-btn__bar"></span><span class="menu-btn__bar"></span>
+    </button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
+      <ul class="gnav__list">
+        <li><a class="gnav__link" href="company.html">会社情報</a></li>
+        <li><a class="gnav__link" href="service.html">事業内容</a></li>
+        <li><a class="gnav__link" href="recruit.html">採用情報</a></li>
+        <li data-contact><a class="gnav__link" href="contact.html" aria-current="page">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero page-hero--plain">
+    <div class="page-hero__body container">
+      <p class="label-en page-hero__en">Contact</p>
+      <h1 class="page-hero__title">お問い合わせ</h1>
+    </div>
+  </div>
+  <nav class="breadcrumb container" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="index.html">ホーム</a></li>
+      <li><span aria-current="page">お問い合わせ</span></li>
+    </ol>
+  </nav>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)" aria-label="お問い合わせフォーム">
+    <div class="container container--text">
+      <p class="lead">倉庫保管、物流センターの運営、輸送車両の手配について、お気軽にご相談ください。<span class="note-dummy">※フォームは準備中です。現在はお電話でご相談ください。</span></p>
+      <p class="muted" style="margin-top:12px">お急ぎの方はお電話で：<a href="tel:0862367500">086-236-7500</a></p>
+
+      <!-- 【要確認】送信先：Formspree の場合は action の YOUR_FORM_ID を差し替えてください。
+           Google フォーム埋め込みやサーバーの PHP を使う場合は README.md を参照してください。 -->
+      <form class="form" style="margin-top:48px" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-contact-form>
+        <div class="form__field">
+          <label class="form__label" for="f-company">会社名<span class="form__opt">任意</span></label>
+          <input type="text" id="f-company" name="会社名" autocomplete="organization">
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="f-name">お名前<span class="form__req">必須</span></label>
+          <input type="text" id="f-name" name="お名前" autocomplete="name" required>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="f-email">メールアドレス<span class="form__req">必須</span></label>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="f-tel">電話番号<span class="form__opt">任意</span></label>
+          <input type="tel" id="f-tel" name="電話番号" autocomplete="tel">
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="f-type">ご相談の内容<span class="form__opt">任意</span></label>
+          <select id="f-type" name="ご相談の内容">
+            <option value="">選択してください</option>
+            <option>倉庫保管</option>
+            <option>センター運営</option>
+            <option>車両手配</option>
+            <option value="採用・応募について">採用・応募について</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="f-message">お問い合わせの内容<span class="form__req">必須</span></label>
+          <textarea id="f-message" name="お問い合わせの内容" required></textarea>
+        </div>
+        <!-- 迷惑メール対策（人には見えない入力欄） -->
+        <div class="form__hp" aria-hidden="true">
+          <label for="f-gotcha">この欄には何も入力しないでください</label>
+          <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form__field">
+          <div class="form__check">
+            <input type="checkbox" id="f-agree" name="プライバシーポリシーへの同意" value="同意する" required>
+            <label for="f-agree"><a href="privacy.html">プライバシーポリシー</a>に同意する<span class="form__req" style="margin-left:10px">必須</span></label>
+          </div>
+        </div>
+        <p class="form__error" id="form-error" role="alert"></p>
+        <div class="form__actions">
+          <button class="btn btn--accent" type="submit" style="min-width:240px">送信する</button>
+        </div>
+      </form>
+
+      <div class="form__done" id="form-done" hidden>
+        <h2>お問い合わせありがとうございました。</h2>
+        <p>内容を確認のうえ、担当者よりご連絡します。<br>しばらくお待ちください。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
+          <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#2D6CB5"/><text x="24" y="30" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#fff">MSL</text></svg>
+          <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
+        </a>
+      </div>
+      <div class="footer__bases">
+        <div class="footer__base">
+          <p class="footer__base-name">本社</p>
+          <address>〒717-0506<br>岡山県真庭市蒜山下長田32-20</address>
+        </div>
+        <div class="footer__base">
+          <p class="footer__base-name">岡山営業所</p>
+          <address>〒701-0206<br>岡山県岡山市南区箕島2153-1<br>TEL <a href="tel:0862367500">086-236-7500</a><br>FAX 086-236-7501</address>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="サイトマップ">
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="service.html">事業内容</a></li>
+          <li><a href="recruit.html">採用情報</a></li>
+          <li data-contact><a href="contact.html">お問い合わせ</a></li>
+          <li data-contact><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="image-disclosure">掲載写真はAIで生成したイメージです。実際の施設・車両・社員とは異なります。</p>
+    <div class="footer__bottom">
+      <small>&copy; 2026 M・Sライン株式会社</small>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

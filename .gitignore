@@ -1,0 +1,6 @@
+.DS_Store
+# 制作用（公開リポジトリに含めない）
+MSライン_HPリニューアル_制作プロンプト.md
+Claude outputs/
+output/
+assets/img/generated-originals/
