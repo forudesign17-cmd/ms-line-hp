@@ -141,7 +141,11 @@
     bar.className = 'scroll-line';
     bar.setAttribute('aria-hidden', 'true');
     document.body.appendChild(bar);
-    var parallax = document.querySelector('.hero__media, .page-hero picture');
+    // ファーストビューの視差：写真は遅れて大きくなり、文字は逆にゆっくり下がって薄れる
+    var heroBox = document.querySelector('.hero, .page-hero');
+    var heroMedia = heroBox && heroBox.querySelector('.hero__media, picture');
+    var heroBody = heroBox && heroBox.querySelector('.hero__body, .page-hero__body');
+    if (!heroMedia) heroBox = null;
     var lastY = window.scrollY;
     var ticking = false;
     function onMotionScroll() {
@@ -152,8 +156,16 @@
         var hide = y > lastY && y > window.innerHeight * 0.6;
         header.classList.toggle('is-hidden', hide);
       }
-      if (parallax && y < window.innerHeight * 1.2) {
-        parallax.style.transform = 'translate3d(0,' + (y * 0.3).toFixed(1) + 'px,0)';
+      if (heroBox) {
+        var h = heroBox.offsetHeight;
+        if (y <= h * 1.2) {
+          var p = Math.min(y / h, 1);
+          heroMedia.style.transform = 'translate3d(0,' + (y * 0.5).toFixed(1) + 'px,0) scale(' + (1 + p * 0.1).toFixed(4) + ')';
+          if (heroBody) {
+            heroBody.style.transform = 'translate3d(0,' + (y * 0.22).toFixed(1) + 'px,0)';
+            heroBody.style.opacity = Math.max(0, 1 - p * 1.15).toFixed(3);
+          }
+        }
       }
       lastY = y;
       ticking = false;

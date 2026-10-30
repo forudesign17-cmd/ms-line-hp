@@ -636,3 +636,7 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
   .site-header.is-hidden { transform: none; }
   .marquee__track { transform: none; }
 }
+
+/* ファーストビューの視差（JSが transform を書き換える） */
+.js .hero__media, .js .page-hero picture { will-change: transform; }
+.js .hero__body, .js .page-hero:not(.page-hero--plain) .page-hero__body { will-change: transform, opacity; }
