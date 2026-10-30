@@ -226,6 +226,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 .page-hero__body { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(32px, 6vw, 56px); }
 .page-hero__en { color: #fff; opacity: .9; }
 .page-hero__title { font-size: var(--fs-h1); margin-top: 4px; }
+.page-hero__title-sub { display: block; font-size: clamp(0.9375rem, 1.6vw, 1.125rem); letter-spacing: 0.08em; margin-top: 4px; opacity: .9; }
 .page-hero--plain { height: auto; min-height: 0; max-height: none; background: var(--color-brand-lt); color: var(--color-ink); padding: calc(var(--header-h) + 64px) 0 56px; }
 .page-hero--plain::after { display: none; }
 .page-hero--plain .page-hero__body { position: static; }
@@ -371,7 +372,7 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 .service-detail { scroll-margin-top: calc(var(--header-h) + 110px); }
 .service-detail__head { display: flex; align-items: baseline; gap: 16px; }
 .service-detail__num { font-family: var(--font-en); font-weight: 600; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: var(--color-brand); }
-.service-detail__verb { font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 12px; }
+.service-detail__verb { font-family: var(--font-head); font-weight: 700; line-height: 1.5; letter-spacing: 0.06em; font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 12px; }
 .service-detail__name { font-size: var(--fs-h3); color: var(--color-muted); font-weight: 700; margin-top: 4px; }
 .service-detail__main { margin-top: clamp(32px, 5vw, 56px); row-gap: 32px; align-items: center; }
 .service-detail__img { grid-column: 1 / -1; border-radius: var(--radius); overflow: hidden; aspect-ratio: 3 / 2; }
@@ -397,6 +398,11 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 .flow { display: grid; gap: 12px; counter-reset: flow; }
 .flow__step { position: relative; background: var(--color-surface); border-radius: var(--radius); padding: 24px; }
 .flow__num { font-family: var(--font-en); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--color-brand); }
+.faq { margin-top: clamp(32px, 5vw, 48px); border-top: 1px solid var(--color-line); }
+.faq__item { padding-block: 24px; border-bottom: 1px solid var(--color-line); }
+.faq__q { font-size: 1.0625rem; display: flex; gap: 12px; }
+.faq__q::before { content: "Q"; font-family: var(--font-en); color: var(--color-brand); flex: none; }
+.faq__a { margin-top: 8px; padding-left: 24px; }
 .flow__title { font-family: var(--font-head); font-weight: 700; font-size: 1.125rem; margin-top: 2px; }
 .flow__text { font-size: 0.9375rem; color: var(--color-muted); margin-top: 6px; line-height: 1.8; }
 .flow__step:not(:last-child)::after {
