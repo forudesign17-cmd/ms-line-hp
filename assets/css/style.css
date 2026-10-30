@@ -760,4 +760,4 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 }
 
 /* 代表挨拶の署名：手書き風の明朝体 */
-.message__sign-name { display: block; margin-top: 6px; font-family: "Yuji Syuku", "Hina Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-weight: 400; font-size: clamp(1.625rem, 3vw, 2rem); letter-spacing: .18em; color: var(--color-ink); transform: rotate(-2deg); transform-origin: right center; }
+.message__sign-name { display: block; margin-top: 6px; font-family: "Yuji Syuku", "Hina Mincho", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-weight: 400; font-size: clamp(1.625rem, 3vw, 2rem); letter-spacing: .18em; margin-right: -.18em; color: var(--color-ink); }
