@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+<style>
+.l{fill:none;stroke:#2D6CB5;stroke-opacity:.3;stroke-width:2;stroke-dasharray:7 11;stroke-linecap:round;animation:flow 7s linear infinite}
+.l2{animation-duration:11s;animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-72}}
+@media (prefers-reduced-motion:reduce){.l{animation:none}}
+</style>
+<path class="l" d="M0 470C200 370 320 560 520 420S860 300 1000 360 1160 220 1200 160"/>
+<path class="l l2" d="M0 130C160 210 300 40 480 140S760 260 900 140 1120 60 1200 90"/>
+<g fill="#2D6CB5" fill-opacity=".35"><circle cx="520" cy="420" r="6"/><circle cx="1000" cy="360" r="6"/><circle cx="480" cy="140" r="6"/></g>
+<g fill="none" stroke="#2D6CB5" stroke-opacity=".25"><circle cx="520" cy="420" r="16"/><circle cx="1000" cy="360" r="16"/><circle cx="480" cy="140" r="16"/></g>
+<circle cx="900" cy="140" r="7" fill="#E58A2E" fill-opacity=".7"/>
+</svg>

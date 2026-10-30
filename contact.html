@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=5">
+<link rel="stylesheet" href="assets/css/style.css?v=6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,7 +34,7 @@
   ]
 }
 </script>
-<script src="assets/js/main.js?v=5" defer></script>
+<script src="assets/js/main.js?v=6" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -42,7 +42,6 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
-      <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#2D6CB5"/><text x="24" y="30" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#fff">MSL</text></svg>
       <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
@@ -73,66 +72,22 @@
     </ol>
   </nav>
 
-  <section class="section" style="padding-top:clamp(40px,6vw,72px)" aria-label="お問い合わせフォーム">
+  <section class="section contact-mail bg-topo bg-topo--left" style="padding-top:clamp(40px,6vw,72px)" aria-labelledby="mail-title">
     <div class="container container--text">
-      <p class="lead">倉庫保管、物流センターの運営、輸送車両の手配について、お気軽にご相談ください。<span class="note-dummy">※フォームは準備中です。現在はお電話でご相談ください。</span></p>
-      <p class="muted" style="margin-top:12px">お急ぎの方はお電話で：<a href="tel:0862367500">086-236-7500</a></p>
-
-      <!-- 【要確認】送信先：Formspree の場合は action の YOUR_FORM_ID を差し替えてください。
-           Google フォーム埋め込みやサーバーの PHP を使う場合は README.md を参照してください。 -->
-      <form class="form" style="margin-top:48px" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-contact-form>
-        <div class="form__field">
-          <label class="form__label" for="f-company">会社名<span class="form__opt">任意</span></label>
-          <input type="text" id="f-company" name="会社名" autocomplete="organization">
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="f-name">お名前<span class="form__req">必須</span></label>
-          <input type="text" id="f-name" name="お名前" autocomplete="name" required>
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="f-email">メールアドレス<span class="form__req">必須</span></label>
-          <input type="email" id="f-email" name="email" autocomplete="email" required>
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="f-tel">電話番号<span class="form__opt">任意</span></label>
-          <input type="tel" id="f-tel" name="電話番号" autocomplete="tel">
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="f-type">ご相談の内容<span class="form__opt">任意</span></label>
-          <select id="f-type" name="ご相談の内容">
-            <option value="">選択してください</option>
-            <option>倉庫保管</option>
-            <option>センター運営</option>
-            <option>車両手配</option>
-            <option value="採用・応募について">採用・応募について</option>
-            <option>その他</option>
-          </select>
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="f-message">お問い合わせの内容<span class="form__req">必須</span></label>
-          <textarea id="f-message" name="お問い合わせの内容" required></textarea>
-        </div>
-        <!-- 迷惑メール対策（人には見えない入力欄） -->
-        <div class="form__hp" aria-hidden="true">
-          <label for="f-gotcha">この欄には何も入力しないでください</label>
-          <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
-        </div>
-        <div class="form__field">
-          <div class="form__check">
-            <input type="checkbox" id="f-agree" name="プライバシーポリシーへの同意" value="同意する" required>
-            <label for="f-agree"><a href="privacy.html">プライバシーポリシー</a>に同意する<span class="form__req" style="margin-left:10px">必須</span></label>
-          </div>
-        </div>
-        <p class="form__error" id="form-error" role="alert"></p>
-        <div class="form__actions">
-          <button class="btn btn--accent" type="submit" style="min-width:240px">送信する</button>
-        </div>
-      </form>
-
-      <div class="form__done" id="form-done" hidden>
-        <h2>お問い合わせありがとうございました。</h2>
-        <p>内容を確認のうえ、担当者よりご連絡します。<br>しばらくお待ちください。</p>
-      </div>
+      <p class="lead">倉庫保管、物流センターの運営、輸送車両の手配について、メールでお気軽にご相談ください。</p>
+      <h2 class="contact-mail__title" id="mail-title">ご相談の内容を選んで、メールを作成する</h2>
+      <ul class="mail-topics">
+        <li><a class="btn btn--brand" href="mailto:msline.081507@gmail.com?subject=%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91%E5%80%89%E5%BA%AB%E4%BF%9D%E7%AE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=M%E3%83%BBS%E3%83%A9%E3%82%A4%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0D%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0D%0A%0D%0A%E3%80%90%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%E3%80%91%0D%0A%EF%BC%88%E4%BF%9D%E7%AE%A1%E3%81%97%E3%81%9F%E3%81%84%E8%8D%B7%E7%89%A9%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%83%BB%E9%87%8F%E3%83%BB%E6%9C%9F%E9%96%93%E3%81%AA%E3%81%A9%E3%82%92%E3%81%94%E8%A8%98%E5%85%A5%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0D%0A">倉庫保管について<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+        <li><a class="btn btn--brand" href="mailto:msline.081507@gmail.com?subject=%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91%E7%89%A9%E6%B5%81%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%81%AE%E9%81%8B%E5%96%B6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=M%E3%83%BBS%E3%83%A9%E3%82%A4%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0D%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0D%0A%0D%0A%E3%80%90%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%E3%80%91%0D%0A%EF%BC%88%E7%8F%BE%E5%9C%A8%E3%81%AE%E6%A5%AD%E5%8B%99%E5%86%85%E5%AE%B9%E3%83%BB%E5%87%BA%E8%8D%B7%E9%87%8F%E3%83%BB%E3%81%94%E5%B8%8C%E6%9C%9B%E3%81%AA%E3%81%A9%E3%82%92%E3%81%94%E8%A8%98%E5%85%A5%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0D%0A">物流センターの運営について<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+        <li><a class="btn btn--brand" href="mailto:msline.081507@gmail.com?subject=%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91%E8%BC%B8%E9%80%81%E8%BB%8A%E4%B8%A1%E3%81%AE%E6%89%8B%E9%85%8D%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=M%E3%83%BBS%E3%83%A9%E3%82%A4%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0D%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0D%0A%0D%0A%E3%80%90%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%E3%80%91%0D%0A%EF%BC%88%E8%8D%B7%E7%89%A9%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%83%BB%E5%8C%BA%E9%96%93%E3%83%BB%E6%97%A5%E6%99%82%E3%81%AA%E3%81%A9%E3%82%92%E3%81%94%E8%A8%98%E5%85%A5%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0D%0A">輸送車両の手配について<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+        <li><a class="btn btn--brand" href="mailto:msline.081507@gmail.com?subject=%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%80%91&body=M%E3%83%BBS%E3%83%A9%E3%82%A4%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%20%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%0D%0A%0D%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%EF%BC%9A%0D%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0D%0A%0D%0A%E3%80%90%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%E3%80%91%0D%0A%EF%BC%88%E3%81%94%E7%9B%B8%E8%AB%87%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E3%81%94%E8%A8%98%E5%85%A5%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%EF%BC%89%0D%0A">その他のご相談<svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+      <p class="muted contact-mail__note">ボタンを押すと、お使いのメールアプリが開き、件名と記入欄が入った状態になります。開かないときは、下のアドレスへ直接お送りください。</p>
+      <dl class="outline contact-mail__info">
+        <div class="outline__row"><dt>メール</dt><dd><a class="mail-address" href="mailto:msline.081507@gmail.com">msline.081507@gmail.com</a></dd></div>
+        <div class="outline__row"><dt>お電話</dt><dd><a href="tel:0862367500">086-236-7500</a>（岡山営業所）</dd></div>
+      </dl>
+      <p class="muted contact-mail__note">お送りいただいた内容は、ご返信のためにのみ使用します。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
     </div>
   </section>
 </main>
@@ -142,7 +97,6 @@
     <div class="footer__grid">
       <div>
         <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
-          <svg class="logo__mark" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#2D6CB5"/><text x="24" y="30" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="600" font-size="15" letter-spacing="0.5" fill="#fff">MSL</text></svg>
           <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
         </a>
       </div>

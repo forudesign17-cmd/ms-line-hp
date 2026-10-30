@@ -142,6 +142,7 @@
     bar.setAttribute('aria-hidden', 'true');
     document.body.appendChild(bar);
     // ファーストビューの視差：写真は遅れて大きくなり、文字は逆にゆっくり下がって薄れる
+    var words = document.querySelectorAll('[data-word]');
     var heroBox = document.querySelector('.hero, .page-hero');
     var heroMedia = heroBox && heroBox.querySelector('.hero__media, picture');
     var heroBody = heroBox && heroBox.querySelector('.hero__body, .page-hero__body');
@@ -167,6 +168,12 @@
           }
         }
       }
+      words.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) {
+          el.style.setProperty('--p', ((window.innerHeight - r.top) / (window.innerHeight + r.height)).toFixed(3));
+        }
+      });
       lastY = y;
       ticking = false;
     }
@@ -212,59 +219,6 @@
     Object.keys(map).forEach(function (id) {
       var sec = document.getElementById(id);
       if (sec) sio.observe(sec);
-    });
-  }
-
-  /* ---------- 6. お問い合わせフォーム（contact.html のみ） ---------- */
-  var form = document.querySelector('[data-contact-form]');
-  if (form) {
-    // 採用ページから来たとき（contact.html?type=recruit）は「採用・応募について」を選んでおく
-    if (new URLSearchParams(location.search).get('type') === 'recruit') {
-      var typeSelect = form.querySelector('select');
-      if (typeSelect) typeSelect.value = '採用・応募について';
-    }
-    var done = document.getElementById('form-done');
-    var errorBox = document.getElementById('form-error');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      errorBox.textContent = '';
-
-      // 迷惑メール対策：ハニーポット欄に入力があれば送信しない
-      if (form.querySelector('[name="_gotcha"]').value) return;
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      var action = form.getAttribute('action') || '';
-      if (!action || action.indexOf('YOUR_FORM_ID') !== -1) {
-        errorBox.textContent = 'フォームは準備中です。お電話（086-236-7500）でご相談ください。';
-        return;
-      }
-
-      var btn = form.querySelector('[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = '送信しています…';
-
-      fetch(action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(function (res) {
-        if (!res.ok) throw new Error('send failed');
-        return res.json();
-      }).then(function (result) {
-        if (result.ok !== true) throw new Error('send failed');
-        form.hidden = true;
-        done.hidden = false;
-        done.setAttribute('tabindex', '-1');
-        done.focus();
-      }).catch(function () {
-        errorBox.textContent = '送信できませんでした。時間をおいて再度お試しいただくか、お電話（086-236-7500）でご連絡ください。';
-        btn.disabled = false;
-        btn.textContent = '送信する';
-      });
     });
   }
 })();
