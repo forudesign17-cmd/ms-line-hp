@@ -704,3 +704,38 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 .seo-count { color: var(--color-muted); font-size: var(--fs-small); margin-left: 6px; }
 
 .seo-page .outline { max-width: none; }
+
+/* ---------- 21. ボタンの刷新 ----------
+   A：主役のボタン（.btn）＝カプセル型＋丸い矢印。乗せると丸が広がって全体が染まる。
+   C：リンク風のボタン（.btn--line / .text-link / .footer__pagetop）＝ラベル ― ― ― ○（ルート線とノード） */
+.btn { position: relative; overflow: hidden; isolation: isolate; justify-content: space-between; gap: 22px; min-height: 60px; padding: 8px 8px 8px 30px; border: 1.5px solid var(--color-ink); border-radius: 999px; background: var(--color-ink); color: #fff; transition: border-color .4s, color .4s; }
+.btn::before { content: ""; position: absolute; z-index: -1; right: 8px; top: 50%; width: 42px; height: 42px; margin-top: -21px; border-radius: 50%; background: var(--color-brand); transform: scale(0); transition: transform .7s var(--ease-out); }
+.btn:hover::before { transform: scale(11); }
+.btn .arrow { width: 42px; height: 42px; padding: 12px; box-sizing: border-box; border-radius: 50%; background: var(--color-accent); color: var(--color-ink); transition: transform .5s var(--ease-out); }
+.btn:hover .arrow { transform: rotate(-45deg); }
+.btn--accent, .btn--accent:hover { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+.btn--brand, .btn--brand:hover { background: var(--color-brand); border-color: var(--color-brand); color: #fff; }
+.btn--brand::before { background: var(--color-ink); }
+.btn--light, .site-footer .btn--light:hover, .btn--light:hover { background: #fff; border-color: #fff; color: var(--color-ink); min-height: 60px; padding: 8px 8px 8px 30px; }
+.btn--light::before, .btn--light:hover::before { background: var(--color-brand); }
+.site-footer .btn--light:hover, .btn--light:hover { color: #fff; border-color: var(--color-brand); }
+
+/* C：ルート線のリンク */
+.btn.btn--line, .text-link, .footer__pagetop { display: inline-flex; align-items: center; gap: 14px; border: 0; border-radius: 0; background: none; min-height: 0; padding: 6px 0; overflow: visible; isolation: auto; color: var(--color-ink); font-family: var(--font-head); font-weight: 700; letter-spacing: .08em; justify-content: flex-start; }
+.btn--line::before, .text-link::before, .footer__pagetop::before { content: ""; order: 1; position: static; z-index: auto; flex: none; width: 36px; height: 2px; margin: 0; border-radius: 0; background: repeating-linear-gradient(90deg, currentColor 0 8px, transparent 8px 14px); transform: none; transition: width .6s var(--ease-out); }
+.btn--line:hover::before, .text-link:hover::before, .footer__pagetop:hover::before { transform: none; width: 64px; }
+.btn--line .arrow, .text-link .arrow, .footer__pagetop svg { order: 2; flex: none; width: 40px; height: 40px; padding: 10px; box-sizing: border-box; border: 2px solid currentColor; border-radius: 50%; background: none; color: inherit; transition: background-color .35s, border-color .35s, color .35s, transform .5s var(--ease-out); }
+.text-link .arrow { width: 46px; height: 46px; padding: 12px; }
+.btn.btn--line:hover, .text-link:hover, .footer__pagetop:hover { color: var(--color-ink); border-color: transparent; }
+.btn--line:hover .arrow, .text-link:hover .arrow { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); transform: scale(1.08); }
+.btn--line { font-size: var(--fs-small); }
+.footer__pagetop { color: #fff; font-size: .8125rem; }
+.footer__pagetop::before { width: 28px; }
+.footer__pagetop:hover { color: #fff; }
+.footer__pagetop:hover::before { width: 52px; }
+.footer__pagetop svg { width: 38px; height: 38px; padding: 9px; }
+.footer__pagetop:hover svg { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-ink); transform: translateY(-4px); }
+@media (hover: none) { .btn:hover::before { transform: none; } .btn:hover .arrow { transform: none; } }
+.site-footer .btn--light { color: var(--color-ink); }
+.site-footer .btn--light:hover { color: #fff; }
+@media (max-width: 400px) { .btn { gap: 12px; padding-left: 22px; font-size: .9375rem; letter-spacing: .04em; } }
