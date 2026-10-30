@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
 <link rel="preload" as="image" href="assets/img/hero_1920x1080.webp" type="image/webp" media="(min-width: 768px)">
-<link rel="stylesheet" href="assets/css/style.css?v=14">
+<link rel="stylesheet" href="assets/css/style.css?v=15">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,7 +61,7 @@
   "description": "岡山県の倉庫保管・物流センター運営・輸送車両の手配"
 }
 </script>
-<script src="assets/js/main.js?v=14" defer></script>
+<script src="assets/js/main.js?v=15" defer></script>
 </head>
 <body class="has-hero">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -243,14 +243,39 @@
     <div class="container">
       <header class="section-head reveal">
         <p class="section-head__en">Base</p>
-        <h2 class="section-head__ja" id="base-title">岡山市南区の物流センター</h2>
+        <h2 class="section-head__ja" id="base-title">岡山市南区の物流センターと、蒜山の本社</h2>
       </header>
       <div class="grid-12 base__grid">
-        <figure class="base__photo reveal">
-          <picture>
-            <source srcset="assets/img/base_okayama_1280x720.webp" type="image/webp">
-            <img src="assets/img/base_okayama_1280x720.jpg" width="1280" height="720" alt="市街地の倉庫のイメージ（実際の岡山営業所ではありません）（AI生成）" loading="lazy">
-          </picture>
+        <figure class="base__map reveal">
+          <svg viewBox="0 0 600 420" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">岡山県の拠点マップ（略図）</title>
+            <desc id="map-desc">岡山県南部の岡山市に営業所、北部の山あいの蒜山に本社があります。</desc>
+            <path d="M40 176 L70 124 L122 98 L170 64 L232 44 L300 58 L362 46 L424 72 L482 62 L540 98 L560 152 L545 212 L522 252 L532 300 L492 332 L442 342 L402 372 L342 362 L300 382 L250 352 L200 356 L160 332 L110 322 L80 282 L50 242 Z" fill="#E8F0F9" stroke="#2D6CB5" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M150 400 Q300 392 460 404" fill="none" stroke="#DAD6CC" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+            <text x="300" y="414" text-anchor="middle" font-size="12" fill="#5E6672" font-family="Noto Sans JP, sans-serif">瀬戸内海</text>
+            <path d="M232 108 C 270 180, 300 240, 338 308" fill="none" stroke="#2D6CB5" stroke-width="2" stroke-dasharray="6 6" opacity=".35"/>
+            <path class="map-route-draw" d="M338 308 C 300 240, 270 180, 232 108" pathLength="1" fill="none" stroke="#2D6CB5" stroke-width="3" stroke-linecap="round"/>
+            <g class="map-mover">
+              <circle r="9" fill="#E58A2E" fill-opacity=".25"/>
+              <circle r="5" fill="#E58A2E"/>
+              <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" path="M338 308 C 300 240, 270 180, 232 108"/>
+            </g>
+            <g>
+              <circle class="map-pulse map-pulse--2" cx="232" cy="108" r="10" fill="#2D6CB5" fill-opacity=".3"/>
+              <circle cx="232" cy="108" r="14" fill="#2D6CB5" fill-opacity=".18"/>
+              <circle cx="232" cy="108" r="7" fill="#2D6CB5"/>
+              <text x="252" y="104" font-size="18" font-weight="700" fill="#1E2A3A" font-family="Zen Kaku Gothic New, sans-serif">蒜山</text>
+              <text x="252" y="124" font-size="12" fill="#5E6672" font-family="Noto Sans JP, sans-serif">本社（真庭市）</text>
+            </g>
+            <g>
+              <circle class="map-pulse" cx="338" cy="308" r="10" fill="#2D6CB5" fill-opacity=".3"/>
+              <circle cx="338" cy="308" r="14" fill="#2D6CB5" fill-opacity=".18"/>
+              <circle cx="338" cy="308" r="7" fill="#2D6CB5"/>
+              <text x="358" y="304" font-size="18" font-weight="700" fill="#1E2A3A" font-family="Zen Kaku Gothic New, sans-serif">岡山</text>
+              <text x="358" y="324" font-size="12" fill="#5E6672" font-family="Noto Sans JP, sans-serif">営業所（岡山市南区）</text>
+            </g>
+            <text x="560" y="28" text-anchor="end" font-size="11" fill="#5E6672" font-family="Noto Sans JP, sans-serif">※位置は略図です</text>
+          </svg>
         </figure>
         <ul class="base__list">
           <li class="reveal">
@@ -263,9 +288,18 @@
               </span>
             </a>
           </li>
+          <li class="reveal">
+            <a class="base-item" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B2%A1%E5%B1%B1%E7%9C%8C%E7%9C%9F%E5%BA%AD%E5%B8%82%E8%92%9C%E5%B1%B1%E4%B8%8B%E9%95%B7%E7%94%B032-20" target="_blank" rel="noopener">
+              <span class="base-item__tag">HEAD OFFICE</span>
+              <h3 class="base-item__name">本社（蒜山）</h3>
+              <p class="base-item__addr">〒717-0506<br>岡山県真庭市蒜山下長田32-20</p>
+              <span class="base-item__more">Google マップで見る<span class="visually-hidden">（新しいタブで開きます）</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
-      <p class="base__hq reveal">本社所在地：〒717-0506 岡山県真庭市蒜山下長田32-20</p>
     </div>
   </section>
 

@@ -295,12 +295,11 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 
 /* 拠点（地図） */
 .base__grid { align-items: center; row-gap: 40px; }
-.base__photo { grid-column: 1 / -1; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; }
-.base__photo picture, .base__photo img { width: 100%; height: 100%; object-fit: cover; }
-.base__hq { margin-top: 24px; color: var(--color-muted); font-size: var(--fs-small); }
+.base__map { grid-column: 1 / -1; background: var(--color-surface); border-radius: var(--radius); padding: clamp(16px, 3vw, 32px); }
+.base__map svg { width: 100%; height: auto; }
 .base__list { grid-column: 1 / -1; display: grid; gap: 16px; }
 @media (min-width: 1024px) {
-  .base__photo { grid-column: 1 / 8; }
+  .base__map { grid-column: 1 / 8; }
   .base__list { grid-column: 8 / 13; }
 }
 .base-item { display: block; padding: 24px; background: var(--color-surface); border-radius: var(--radius); color: var(--color-ink); border: 1px solid transparent; transition: border-color .2s; }
@@ -744,4 +743,18 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
   .bases--one .base-card { flex-direction: row; }
   .bases--one .base-card__img { flex: 0 0 48%; aspect-ratio: auto; }
   .bases--one .base-card__img picture, .bases--one .base-card__img img { height: 100%; }
+}
+
+/* 拠点マップ：ルートが引かれ、荷物が行き来する */
+.map-route-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.base__map.is-in .map-route-draw { animation: drawRoute 2s .3s var(--ease-out) forwards; }
+@keyframes drawRoute { to { stroke-dashoffset: 0; } }
+.map-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+.map-pulse--2 { animation-delay: 1.2s; }
+@keyframes pulse { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
+.map-mover { opacity: 0; transition: opacity .6s 2s; }
+.base__map.is-in .map-mover { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .map-route-draw { stroke-dashoffset: 0; }
+  .map-mover { display: none; }
 }

@@ -103,7 +103,7 @@
   // 写真はシャッターのように開く。見出しは線が引かれてからせり上がる
   var wipes = document.querySelectorAll('.about__photo, .card__img, .service-detail__img, .base-card__img, .base__photo, .work__img');
   wipes.forEach(function (el) { el.classList.add('wipe'); });
-  var inTargets = Array.from(wipes).concat(Array.from(document.querySelectorAll('.section-head, .numbers')));
+  var inTargets = Array.from(wipes).concat(Array.from(document.querySelectorAll('.section-head, .base__map, .numbers')));
   function countUp(el) {
     var comma = el.textContent.indexOf(',') !== -1;
     var to = parseInt(el.textContent.replace(/,/g, ''), 10);
@@ -122,6 +122,7 @@
   }
   if (still) {
     inTargets.forEach(function (el) { el.classList.add('is-in'); });
+    document.querySelectorAll('.base__map svg').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
   } else {
     var mio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
