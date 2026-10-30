@@ -637,12 +637,8 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 
 /* ---------- 19. 背景の模様（無地の面を減らす） ----------
    模様は文字より後ろに置く。isolation で背景色の上・本文の下に収める。 */
-.bg-topo, .bg-grid, .bg-route, .bg-word, .bg-dots, .closing, .apply, .page-hero--plain { position: relative; overflow: hidden; overflow: clip; isolation: isolate; }
-.bg-topo::before, .bg-grid::before, .bg-route::before, .bg-word::before, .bg-dots::before, .closing::before, .apply::before, .page-hero--plain::before { content: ""; position: absolute; z-index: -1; pointer-events: none; }
-
-/* 等高線：山あいの地形 */
-.bg-topo::before { top: 50%; right: -12%; width: min(860px, 90vw); aspect-ratio: 860 / 660; transform: translateY(-50%); background: url(../img/bg_topo.svg) center / contain no-repeat; }
-.bg-topo--left::before { right: auto; left: -12%; }
+.bg-grid, .bg-route, .bg-word, .bg-dots, .closing, .apply, .page-hero--plain { position: relative; overflow: hidden; overflow: clip; isolation: isolate; }
+.bg-grid::before, .bg-route::before, .bg-word::before, .bg-dots::before, .closing::before, .apply::before, .page-hero--plain::before { content: ""; position: absolute; z-index: -1; pointer-events: none; }
 
 /* 格子：地図の方眼 */
 .bg-grid::before { inset: 0; background-image: linear-gradient(rgba(45, 108, 181, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 108, 181, .09) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 85%); mask-image: linear-gradient(180deg, #000 0%, transparent 85%); }
