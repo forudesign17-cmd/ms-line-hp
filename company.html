@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
 <script type="application/ld+json">
 [
   {
@@ -71,7 +71,7 @@
   ]
 }
 </script>
-<script src="assets/js/main.js?v=7" defer></script>
+<script src="assets/js/main.js?v=10" defer></script>
 </head>
 <body class="has-hero">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -249,13 +249,16 @@
   </div>
 </aside>
 
-<footer class="site-footer">
+<footer class="site-footer" data-word="OKAYAMA">
   <div class="container">
-    <div class="footer__grid">
-      <div>
+    <div class="footer__top">
+      <div class="footer__lead">
         <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
           <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
         </a>
+        <p class="footer__tagline">近くて、確か。</p>
+        <p class="footer__cta" data-contact><a class="btn btn--light" href="contact.html">メールで相談する
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
       </div>
       <div class="footer__bases">
         <div class="footer__base">
@@ -275,12 +278,14 @@
           <li><a href="recruit.html">採用情報</a></li>
           <li data-contact><a href="contact.html">お問い合わせ</a></li>
           <li data-contact><a href="privacy.html">プライバシーポリシー</a></li>
+          <li data-review><a href="seo.html">SEO方針（確認用）</a></li>
         </ul>
       </nav>
     </div>
     <p class="image-disclosure">掲載写真はAIで生成したイメージです。実際の施設・車両・社員とは異なります。</p>
     <div class="footer__bottom">
       <small>&copy; 2026 M・Sライン株式会社</small>
+      <a class="footer__pagetop" href="#">ページの先頭へ<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20V5M6 11l6-6 6 6"/></svg></a>
     </div>
   </div>
 </footer>

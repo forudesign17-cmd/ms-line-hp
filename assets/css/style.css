@@ -435,24 +435,45 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 .closing__nocontact { display: block; }
 .closing:has([data-contact]) .closing__nocontact { display: none; }
 
-/* ---------- 14. フッター ---------- */
-.site-footer { background: var(--color-ink); color: #fff; padding-block: clamp(56px, 8vw, 88px) 32px; font-size: 0.9375rem; }
+/* ---------- 14. フッター ----------
+   暗い紺の面に、流れるルート線・拠点を結ぶ道すじ・大きな輪郭文字を重ねる */
+.site-footer { position: relative; overflow: hidden; overflow: clip; isolation: isolate; background: var(--color-ink); color: #fff; padding-block: clamp(72px, 10vw, 120px) 28px; font-size: 0.9375rem; }
 .site-footer a { color: #fff; }
 .site-footer .logo { color: #fff; }
-.footer__grid { display: grid; gap: 40px; }
-.footer__bases { display: grid; gap: 28px; }
-.footer__base-name { font-family: var(--font-head); font-weight: 700; }
-.footer__base address { font-style: normal; line-height: 1.9; color: rgba(255,255,255,.85); }
-.footer__nav ul { display: grid; gap: 8px; }
-.footer__nav a { display: inline-block; padding-block: 4px; }
-.footer__nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.footer__bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.75rem; color: rgba(255,255,255,.75); }
+.site-footer::before { content: attr(data-word); position: absolute; z-index: -1; left: 0; bottom: -.14em; font-family: var(--font-en); font-weight: 700; font-size: clamp(7rem, 26vw, 22rem); line-height: 1; letter-spacing: .04em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .11); pointer-events: none; transform: translateX(calc(12vw - var(--p, .5) * 30vw)); }
+.site-footer::after { content: ""; position: absolute; z-index: -1; left: 0; right: 0; top: 0; height: 260px; background: url(../img/bg_route_dark.svg) center top / max(1200px, 100%) auto no-repeat; pointer-events: none; }
+
+.footer__top { display: grid; gap: clamp(40px, 6vw, 56px); }
+.footer__tagline { margin-top: 20px; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.75rem, 3.6vw, 2.5rem); line-height: 1.4; letter-spacing: .08em; }
+.footer__cta { margin-top: 28px; }
+.btn--light { border: 1px solid rgba(255, 255, 255, .6); color: #fff; background: transparent; min-height: 48px; padding: 0 24px; }
+.btn--light:hover { background: #fff; color: var(--color-ink); }
+.btn--light:hover::before { background: transparent; }
+.site-footer .btn--light:hover { color: var(--color-ink); }
+
+/* 拠点：道すじの停留所のように縦に結ぶ */
+.footer__bases { position: relative; display: grid; gap: 32px; padding-left: 32px; }
+.footer__bases::before { content: ""; position: absolute; left: 6px; top: 12px; bottom: 12px; border-left: 2px dashed rgba(255, 255, 255, .35); }
+.footer__base { position: relative; }
+.footer__base::before { content: ""; position: absolute; left: -32px; top: 5px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; background: var(--color-ink); }
+.footer__base:first-child::before { background: var(--color-accent); border-color: var(--color-accent); }
+.footer__base-name { font-family: var(--font-head); font-weight: 700; font-size: 1.0625rem; }
+.footer__base address { margin-top: 6px; font-style: normal; line-height: 1.9; color: rgba(255, 255, 255, .85); }
+
+/* ページへのリンク：線がのびる */
+.footer__nav ul { display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 4px 28px; }
+.footer__nav a { position: relative; display: inline-block; white-space: nowrap; padding-block: 8px; transition: transform .4s var(--ease-out, ease); }
+.footer__nav a::after { content: ""; position: absolute; left: 0; bottom: 4px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease-out, ease); }
+.footer__nav a:hover { transform: translateX(4px); }
+.footer__nav a:hover::after { transform: scaleX(1); }
+
+.footer__bottom { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .18); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 0.75rem; color: rgba(255, 255, 255, .75); }
 .footer__bottom small { font-size: inherit; }
-@media (min-width: 768px) {
-  .footer__bases { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-}
+.footer__pagetop { display: inline-flex; align-items: center; gap: 8px; padding-block: 8px; color: #fff; }
+.footer__pagetop svg { width: 16px; height: 16px; transition: transform .4s var(--ease-out, ease); }
+.footer__pagetop:hover svg { transform: translateY(-4px); }
 @media (min-width: 1024px) {
-  .footer__grid { grid-template-columns: 3fr 6fr 2fr; gap: 48px; }
+  .footer__top { grid-template-columns: 1.2fr 1.3fr 1fr; align-items: start; gap: 56px; }
 }
 
 /* ---------- 15. スクロール表示 ---------- */
@@ -481,7 +502,7 @@ picture { display: block; }
 .hero__sub { line-height: 2; }
 .hero__image-note { position: absolute; left: var(--gutter); bottom: 20px; z-index: 2; font-family: var(--font-en); font-size: 10px; letter-spacing: .12em; color: #fff; }
 .page-hero::after { background: linear-gradient(0deg, rgba(15,26,38,.78), rgba(15,26,38,.42)); }
-.image-disclosure { margin-top: 48px; color: #ccd2da; font-size: 12px; }
+.image-disclosure { margin-top: 40px; color: #ccd2da; font-size: 12px; }
 .philosophy { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
 .philosophy__note { margin-top: 24px; }
 body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-footer { pointer-events: none; }
@@ -655,3 +676,31 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 /* 下層ページの見出し帯（写真なし） */
 .page-hero--plain::before { inset: 0; background: url(../img/bg_route.svg) center / max(1200px, 100%) auto no-repeat, radial-gradient(rgba(45, 108, 181, .22) 1.5px, transparent 1.6px) 0 0 / 22px 22px; -webkit-mask-image: linear-gradient(90deg, transparent 10%, #000 90%); mask-image: linear-gradient(90deg, transparent 10%, #000 90%); }
 .page-hero--plain .page-hero__body { position: relative; z-index: 1; }
+
+/* ---------- 20. SEO方針ページ（確認用・本番では seo.html ごと削除） ---------- */
+.review-note { margin-top: 24px; }
+.seo-sec { margin-top: clamp(48px, 7vw, 80px); }
+.seo-sec:first-of-type { margin-top: 32px; }
+.seo-sec > h2 { font-size: var(--fs-h2); margin-bottom: 20px; }
+.seo-sec > p { margin-top: 12px; }
+.table-wrap { overflow-x: auto; margin-top: 20px; border: 1px solid var(--color-line); border-radius: var(--radius); background: var(--color-surface); }
+.seo-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: var(--fs-small); line-height: 1.7; }
+.seo-table th, .seo-table td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-line); }
+.seo-table th { font-family: var(--font-head); background: var(--color-brand-lt); white-space: nowrap; }
+.seo-table tr:last-child td { border-bottom: 0; }
+.seo-list { padding-left: 1.3em; list-style: disc; margin-top: 12px; }
+.seo-list li + li { margin-top: 6px; }
+.seo-list--check { list-style: none; padding-left: 0; }
+.seo-list--check li { padding-left: 1.6em; position: relative; }
+.seo-list--check li::before { content: "✓"; position: absolute; left: 0; color: var(--color-brand); font-weight: 700; }
+.seo-list--todo li::before { content: "□"; }
+.seo-page { margin-top: 28px; padding: clamp(20px, 3vw, 32px); background: var(--color-surface); border-radius: var(--radius); }
+.seo-page h3 { font-size: var(--fs-h3); }
+.seo-page__file { font-family: var(--font-en); font-size: var(--fs-small); color: var(--color-muted); margin-left: 8px; font-weight: 500; }
+.seo-page__kw { margin-top: 8px; color: var(--color-brand-dk); font-weight: 700; }
+.seo-page .outline { margin-top: 16px; }
+.seo-page .outline__row { padding: 14px 0; }
+.seo-page .seo-list { margin-top: 4px; }
+.seo-count { color: var(--color-muted); font-size: var(--fs-small); margin-left: 6px; }
+
+.seo-page .outline { max-width: none; }

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 確認用ページ。noindex は消さず、本番公開時はこのファイルごと削除してください -->
+<meta name="robots" content="noindex, nofollow">
+<title>SEO方針（確認用）｜M・Sライン株式会社</title>
+<meta name="description" content="確認用のページです。SEOで狙うキーワードと見出しの設計をまとめています。">
+<meta name="theme-color" content="#1E2A3A">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
+<script src="assets/js/main.js?v=10" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
+      <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav" aria-label="メニューを開く">
+      <span class="menu-btn__bar"></span><span class="menu-btn__bar"></span><span class="menu-btn__bar"></span>
+    </button>
+    <nav class="gnav" id="gnav" aria-label="メインメニュー">
+      <ul class="gnav__list">
+        <li><a class="gnav__link" href="company.html">会社情報</a></li>
+        <li><a class="gnav__link" href="service.html">事業内容</a></li>
+        <li><a class="gnav__link" href="recruit.html">採用情報</a></li>
+        <li data-contact><a class="gnav__link" href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero page-hero--plain">
+    <div class="page-hero__body container">
+      <p class="label-en page-hero__en">Review</p>
+      <h1 class="page-hero__title">SEO方針（確認用）</h1>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)" aria-label="SEO方針">
+    <div class="container container--text">
+      <p class="lead">このサイトが検索で見つけてもらうために、どのワードを狙い、どこに入れているかをまとめました。</p>
+      <p class="review-note"><span class="note-dummy">※お客様の確認用のページです。本番公開のときに、このページとフッターのリンクを削除します。</span></p>
+    </div>
+    <div class="container">
+      <div class="seo-sec">
+        <h2>1. 基本の考え方</h2>
+        <p>「物流」「運送」のような広いワードは大手の競合が多く、小規模な会社が上位に入るのは困難です。そこで、<strong>地域名 × サービス名</strong>（例：岡山 倉庫保管）に絞り、依頼したい人と求人を探す人に、確実に見つけてもらうことを狙います。</p>
+        <p>岡山営業所がメインのため、表記・見出し・並び順はすべて「岡山市 → 蒜山（真庭市）」の順にそろえています。</p>
+      </div>
+
+      <div class="seo-sec">
+        <h2>2. 狙うキーワード</h2>
+        <div class="table-wrap">
+          <table class="seo-table">
+            <thead><tr><th>種類</th><th>ワードの例</th><th>狙うページ</th></tr></thead>
+            <tbody>
+              <tr><td>社名</td><td>M・Sライン／MSライン／エムエスライン　＋　岡山</td><td>トップ（別表記は構造化データに登録済み）</td></tr>
+              <tr><td>地域 × サービス（依頼）</td><td>岡山市 倉庫 保管／岡山市南区 倉庫／岡山 物流センター 運営／岡山 車両 手配／岡山 物流 アウトソーシング</td><td>トップ・事業内容</td></tr>
+              <tr><td>蒜山・真庭</td><td>真庭市 倉庫／蒜山 倉庫／真庭 物流</td><td>トップ・会社情報</td></tr>
+              <tr><td>採用</td><td>岡山市南区 倉庫 求人／岡山 配車 事務 求人／真庭市 求人 倉庫／蒜山 求人</td><td>採用情報</td></tr>
+              <tr><td>質問・悩み</td><td>倉庫 小ロット 預ける／急な出荷 対応 など</td><td>事業内容（よくあるご質問）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted" style="font-size:var(--fs-small)">※上のワードは一般的な傾向からの想定です。実際の検索数は未確認のため、公開後にSearch Consoleで確認し、見出しを調整します。</p>
+      </div>
+
+      <div class="seo-sec">
+        <h2>3. 見出しの設計（現在のサイトの内容）</h2>
+        <p>H1がページの主題、H2が大きな区切り、H3がその中の項目です。検索ワードは、title・説明文・H1・H2に優先して入れています。</p>
+      <article class="seo-page">
+        <h3>トップ<span class="seo-page__file">index.html</span></h3>
+        <p class="seo-page__kw">狙うワード：M・Sライン／MSライン／エムエスライン 岡山　・　岡山市 倉庫保管　・　岡山 物流センター運営　・　岡山 輸送車両の手配　・　真庭市・蒜山 倉庫</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">32文字</span></dt><dd>M・Sライン株式会社｜岡山市・真庭市の倉庫保管・物流センター運営</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">88文字</span></dt><dd>M・Sライン株式会社は、岡山市南区を中心に、真庭市蒜山にも拠点を置く物流会社です。倉庫保管、物流センターの運営、輸送車両の手配まで、お客様の「運ぶ」を一つひとつ丁寧に支えます。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>近くて、確か。 ｜ 岡山・蒜山の倉庫保管と物流センター運営</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>顔の見える距離で、物流を支える。</li><li>数字で見るMSL</li><li>岡山の倉庫保管・物流センター運営・輸送車両の手配</li><li>岡山市南区と真庭市蒜山の2拠点</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd><ul class="seo-list"><li>倉庫保管</li><li>物流センターの運営</li><li>輸送車両の手配</li><li>岡山営業所</li><li>蒜山本社</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="seo-page">
+        <h3>事業内容<span class="seo-page__file">service.html</span></h3>
+        <p class="seo-page__kw">狙うワード：岡山 倉庫保管サービス　・　岡山 物流センター 運営　・　岡山 輸送車両 手配　・　小ロット保管・急な出荷などの質問系ワード（よくあるご質問）</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">36文字</span></dt><dd>事業内容｜倉庫保管・物流センター運営・輸送車両手配｜M・Sライン株式会社</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">76文字</span></dt><dd>M・Sライン株式会社の事業内容。倉庫保管サービス（預かる）、物流センターの運営（整える）、輸送車両の手配（つなぐ）の3つの事業で、岡山の物流を支えます。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>事業内容 ｜ 岡山の倉庫保管・物流センター運営</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>岡山の倉庫保管サービス</li><li>岡山の物流センター運営</li><li>岡山の輸送車両手配</li><li>ご依頼の流れ</li><li>よくあるご質問</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd><ul class="seo-list"><li>商品に合わせた保管環境</li><li>在庫量・頻度に合わせたご提案</li><li>入出庫の正確さ</li><li>工程をまとめてお引き受け</li><li>正確な在庫管理</li><li>現場の見直しと改善</li><li>荷物に合わせた車両選び</li><li>急な依頼にも対応</li><li>安全で確実な配送</li><li>ご相談</li><li>現場の確認・ご提案</li><li>お見積り</li><li>運用開始</li><li>小ロットや短期間でも預けられますか？</li><li>どのような商品を保管できますか？</li><li>急な出荷や繁忙期の増量に対応できますか？</li><li>岡山市と蒜山、どちらの拠点を利用できますか？</li><li>見積りや現場の確認に費用はかかりますか？</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="seo-page">
+        <h3>会社情報<span class="seo-page__file">company.html</span></h3>
+        <p class="seo-page__kw">狙うワード：岡山市の物流会社　・　M・Sライン株式会社 会社概要　・　蒜山 本社・岡山営業所の所在地</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">24文字</span></dt><dd>会社情報｜岡山市の物流会社 M・Sライン株式会社</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">55文字</span></dt><dd>M・Sライン株式会社の会社情報。代表あいさつ、会社概要、岡山営業所・蒜山本社の所在地とアクセスをご案内します。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>会社情報</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>私たちの考え方</li><li>代表挨拶</li><li>会社概要</li><li>拠点（岡山市南区・真庭市蒜山）</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd><ul class="seo-list"><li>一つひとつの荷物に、一つひとつの信頼を。</li><li>岡山営業所（岡山市南区）</li><li>蒜山本社（真庭市）</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="seo-page">
+        <h3>採用情報<span class="seo-page__file">recruit.html</span></h3>
+        <p class="seo-page__kw">狙うワード：岡山市南区 倉庫 求人　・　岡山 配車 事務 求人　・　真庭市 蒜山 求人　・　岡山 物流 正社員</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">40文字</span></dt><dd>採用情報｜岡山市南区・真庭市の倉庫スタッフ・配車事務の求人｜M・Sライン株式会社</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">75文字</span></dt><dd>M・Sライン株式会社の採用情報。岡山市南区と真庭市蒜山の2拠点で、倉庫保管・物流センターの運営・輸送車両の手配をいっしょに支える仲間を募集しています。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>採用情報</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>岡山の物流を、いっしょに支えませんか。</li><li>M・Sラインで働くということ</li><li>募集職種（岡山市南区・真庭市蒜山）</li><li>選考の流れ</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd><ul class="seo-list"><li>顔の見える、少人数のチーム</li><li>岡山と蒜山、2つの拠点</li><li></li><li>倉庫・物流センタースタッフ（岡山市南区・真庭市蒜山）</li><li>配車・事務スタッフ（岡山市南区）</li><li>ご応募</li><li>面接</li><li>職場見学</li><li>内定・入社</li></ul></dd></div>
+        </dl>
+      </article>
+      <article class="seo-page">
+        <h3>お問い合わせ<span class="seo-page__file">contact.html</span></h3>
+        <p class="seo-page__kw">狙うワード：岡山 物流 相談　・　岡山 倉庫 見積り（問い合わせの受け皿。順位は狙わず、ほかのページから誘導する）</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">17文字</span></dt><dd>お問い合わせ｜M・Sライン株式会社</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">58文字</span></dt><dd>M・Sライン株式会社へのお問い合わせ。倉庫保管、物流センターの運営、輸送車両の手配について、お気軽にご相談ください。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>お問い合わせ</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>ご相談の内容を選んで、メールを作成する</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd>—</dd></div>
+        </dl>
+      </article>
+      <article class="seo-page">
+        <h3>プライバシーポリシー<span class="seo-page__file">privacy.html</span></h3>
+        <p class="seo-page__kw">狙うワード：狙わない（法的な説明ページ）</p>
+        <dl class="outline">
+          <div class="outline__row"><dt>タイトル<span class="seo-count">21文字</span></dt><dd>プライバシーポリシー｜M・Sライン株式会社</dd></div>
+          <div class="outline__row"><dt>説明文<span class="seo-count">25文字</span></dt><dd>M・Sライン株式会社の個人情報の取り扱いについて。</dd></div>
+          <div class="outline__row"><dt>H1（1ページに1つ）</dt><dd><ul class="seo-list"><li>プライバシーポリシー</li></ul></dd></div>
+          <div class="outline__row"><dt>H2</dt><dd><ul class="seo-list"><li>1. 個人情報の取得</li><li>2. 利用目的</li><li>3. 第三者への提供</li><li>4. 安全管理</li><li>5. 開示・訂正・削除</li><li>6. お問い合わせ窓口</li><li>7. 改定</li></ul></dd></div>
+          <div class="outline__row"><dt>H3</dt><dd>—</dd></div>
+        </dl>
+      </article>
+      </div>
+
+      <div class="seo-sec">
+        <h2>4. 対応済みの内容</h2>
+        <ul class="seo-list seo-list--check">
+          <li>ページごとに別のタイトルと説明文を設定（社名・地域・サービス名を含む）</li>
+          <li>各ページのH1は1つ。H2・H3の順に階層を整理</li>
+          <li>canonical（正規URL）、OGP、Twitterカードを設定</li>
+          <li>構造化データ：会社情報（Organization）、2拠点（LocalBusiness）、パンくず（BreadcrumbList）</li>
+          <li>sitemap.xml と robots.txt を用意</li>
+          <li>すべての画像に代替テキスト（alt）と縦横サイズを設定。WebP形式と遅延読み込みで表示を軽く</li>
+          <li>スマホ・タブレット・PCの表示に対応（lang="ja"、ファビコン、スマホ向けの文字サイズ）</li>
+          <li>見出しに地域名とサービス名を入れ、岡山を先に表記</li>
+        </ul>
+      </div>
+
+      <div class="seo-sec">
+        <h2>5. 本番公開のときにやること</h2>
+        <ul class="seo-list seo-list--check seo-list--todo">
+          <li>全ページの「noindex」の1行を削除する（今は検索に出ない設定）</li>
+          <li>仮のドメイン「www.example.com」を本番のドメインに置き換える（canonical・OGP・構造化データ・sitemap.xml・robots.txt）</li>
+          <li>このページ（seo.html）と、フッターの「SEO方針（確認用）」のリンクを削除する</li>
+          <li>ロゴ画像をPNGでも用意する（構造化データのlogoに推奨）</li>
+          <li>点線の枠（※ここに○○が入ります）を実際の内容に差し替える。内容が薄いページは検索で評価されにくいため</li>
+          <li>募集要項が確定したら、採用情報に求人の構造化データ（JobPosting）を追加する</li>
+          <li>「運送」という表現を使ってよいか、許可の有無をお客様に確認する</li>
+          <li>Google Search Console に登録し、sitemap.xml を送信する</li>
+          <li>Googleビジネスプロフィールを、岡山営業所と蒜山本社の両方で登録する</li>
+          <li>社名・住所・電話番号の表記を、サイト・Googleマップ・求人サイトで同じにそろえる</li>
+        </ul>
+      </div>
+
+      <div class="seo-sec">
+        <h2>6. 公開後の進め方</h2>
+        <ul class="seo-list">
+          <li>Search Consoleで、実際に検索されたワードと表示順位を確認し、見出しや説明文を調整する</li>
+          <li>よくあるご質問を増やす（質問形のワードを拾える）</li>
+          <li>余力があれば、拠点ごとのページ（岡山営業所・蒜山本社）や、導入事例・お知らせを追加する</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" data-word="OKAYAMA">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__lead">
+        <a class="logo" href="index.html" aria-label="M・Sライン株式会社 トップへ">
+          <span class="logo__name">M・Sライン株式会社<small>M・S LINE CO., LTD.</small></span>
+        </a>
+        <p class="footer__tagline">近くて、確か。</p>
+        <p class="footer__cta" data-contact><a class="btn btn--light" href="contact.html">メールで相談する
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
+      </div>
+      <div class="footer__bases">
+        <div class="footer__base">
+          <p class="footer__base-name">岡山営業所</p>
+          <address>〒701-0206<br>岡山県岡山市南区箕島2153-1<br>TEL <a href="tel:0862367500">086-236-7500</a><br>FAX 086-236-7501</address>
+        </div>
+        <div class="footer__base">
+          <p class="footer__base-name">蒜山本社</p>
+          <address>〒717-0506<br>岡山県真庭市蒜山下長田32-20</address>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="サイトマップ">
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="service.html">事業内容</a></li>
+          <li><a href="recruit.html">採用情報</a></li>
+          <li data-contact><a href="contact.html">お問い合わせ</a></li>
+          <li data-contact><a href="privacy.html">プライバシーポリシー</a></li>
+          <li data-review><a href="seo.html">SEO方針（確認用）</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="image-disclosure">掲載写真はAIで生成したイメージです。実際の施設・車両・社員とは異なります。</p>
+    <div class="footer__bottom">
+      <small>&copy; 2026 M・Sライン株式会社</small>
+      <a class="footer__pagetop" href="#">ページの先頭へ<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20V5M6 11l6-6 6 6"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
