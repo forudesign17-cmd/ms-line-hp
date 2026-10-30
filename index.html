@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
 <link rel="preload" as="image" href="assets/img/hero_1920x1080.webp" type="image/webp" media="(min-width: 768px)">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,7 +48,7 @@
   "description": "岡山県の倉庫保管・物流センター運営・輸送車両の手配"
 }
 </script>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=4" defer></script>
 </head>
 <body class="has-hero">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -155,6 +155,14 @@
     </div>
   </section>
 
+  <!-- 流れる文字の帯（飾り） -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__group"><span class="marquee__word">Okayama</span><span class="marquee__dot"></span><span class="marquee__word marquee__word--fill">Hiruzen</span><span class="marquee__dot"></span><span class="marquee__word">Keep</span><span class="marquee__dot"></span><span class="marquee__word marquee__word--fill">Manage</span><span class="marquee__dot"></span><span class="marquee__word">Connect</span><span class="marquee__dot"></span></div>
+      <div class="marquee__group"><span class="marquee__word">Okayama</span><span class="marquee__dot"></span><span class="marquee__word marquee__word--fill">Hiruzen</span><span class="marquee__dot"></span><span class="marquee__word">Keep</span><span class="marquee__dot"></span><span class="marquee__word marquee__word--fill">Manage</span><span class="marquee__dot"></span><span class="marquee__word">Connect</span><span class="marquee__dot"></span></div>
+    </div>
+  </div>
+
   <!-- 4. SERVICE -->
   <section class="section section--tint" aria-labelledby="service-title">
     <div class="container">
@@ -233,14 +241,22 @@
             <path d="M40 176 L70 124 L122 98 L170 64 L232 44 L300 58 L362 46 L424 72 L482 62 L540 98 L560 152 L545 212 L522 252 L532 300 L492 332 L442 342 L402 372 L342 362 L300 382 L250 352 L200 356 L160 332 L110 322 L80 282 L50 242 Z" fill="#E8F0F9" stroke="#2D6CB5" stroke-width="2" stroke-linejoin="round"/>
             <path d="M150 400 Q300 392 460 404" fill="none" stroke="#DAD6CC" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
             <text x="300" y="414" text-anchor="middle" font-size="12" fill="#5E6672" font-family="Noto Sans JP, sans-serif">瀬戸内海</text>
-            <path d="M232 108 C 270 180, 300 240, 338 308" fill="none" stroke="#2D6CB5" stroke-width="2" stroke-dasharray="6 6"/>
+            <path d="M232 108 C 270 180, 300 240, 338 308" fill="none" stroke="#2D6CB5" stroke-width="2" stroke-dasharray="6 6" opacity=".35"/>
+            <path class="map-route-draw" d="M338 308 C 300 240, 270 180, 232 108" pathLength="1" fill="none" stroke="#2D6CB5" stroke-width="3" stroke-linecap="round"/>
+            <g class="map-mover">
+              <circle r="9" fill="#E58A2E" fill-opacity=".25"/>
+              <circle r="5" fill="#E58A2E"/>
+              <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" path="M338 308 C 300 240, 270 180, 232 108"/>
+            </g>
             <g>
+              <circle class="map-pulse map-pulse--2" cx="232" cy="108" r="10" fill="#2D6CB5" fill-opacity=".3"/>
               <circle cx="232" cy="108" r="14" fill="#2D6CB5" fill-opacity=".18"/>
               <circle cx="232" cy="108" r="7" fill="#2D6CB5"/>
               <text x="252" y="104" font-size="18" font-weight="700" fill="#1E2A3A" font-family="Zen Kaku Gothic New, sans-serif">蒜山</text>
               <text x="252" y="124" font-size="12" fill="#5E6672" font-family="Noto Sans JP, sans-serif">本社（真庭市）</text>
             </g>
             <g>
+              <circle class="map-pulse" cx="338" cy="308" r="10" fill="#2D6CB5" fill-opacity=".3"/>
               <circle cx="338" cy="308" r="14" fill="#2D6CB5" fill-opacity=".18"/>
               <circle cx="338" cy="308" r="7" fill="#2D6CB5"/>
               <text x="358" y="304" font-size="18" font-weight="700" fill="#1E2A3A" font-family="Zen Kaku Gothic New, sans-serif">岡山</text>

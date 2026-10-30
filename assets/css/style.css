@@ -499,8 +499,6 @@ picture { display: block; }
 .image-disclosure { margin-top: 48px; color: #ccd2da; font-size: 12px; }
 .philosophy { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
 .philosophy__note { margin-top: 24px; }
-.card:hover .card__title .arrow { transform: none; }
-.hero__scroll::after { animation: none; }
 body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-footer { pointer-events: none; }
 @media (max-width: 767px) {
   .philosophy { grid-template-columns: 1fr; gap: 0; }
@@ -542,3 +540,99 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 .apply__text { margin-top: 12px; color: var(--color-muted); }
 .apply__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 48px; margin-top: 32px; }
 .apply .closing__tel { margin-top: 0; }
+
+/* ---------- 17. 動きの演出（テーマ：「線が走る」） ----------
+   すべて JS が付けるクラス（.js / .is-in など）が前提。JS無効・動きを減らす設定では表示のみ。 */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); }
+
+/* スクロール量を示す上部のライン */
+.scroll-line { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200; background: var(--color-brand); transform: scaleX(var(--progress, 0)); transform-origin: left; pointer-events: none; }
+
+/* ヘッダー：下にスクロールで隠れ、上に戻すと出る */
+.site-header { transition: background-color .3s, box-shadow .3s, color .3s, transform .45s var(--ease-out); }
+.site-header.is-hidden { transform: translateY(-100%); }
+
+/* トップのファーストビュー：読み込み時の一連の動き */
+.js .hero__media img { animation: heroZoom 3.2s var(--ease-out) both; }
+@keyframes heroZoom { from { transform: scale(1.14); } to { transform: scale(1); } }
+.hero__media { will-change: transform; }
+.js .hero__en { position: relative; display: inline-block; padding-bottom: 10px; animation: fadeIn 1s .2s both; }
+.js .hero__en::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: var(--color-accent); transform-origin: left; animation: drawX 1.2s .4s var(--ease-out) both; }
+.char-line { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; }
+.char { display: inline-block; animation: charUp 1s calc(.5s + var(--i) * .06s) var(--ease-out) both; }
+.js .hero__title-sub { display: inline-block; animation: slideIn 1.1s 1.1s var(--ease-out) both; }
+.js .hero__sub { animation: slideIn 1.1s 1.35s var(--ease-out) both; }
+@keyframes charUp { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes drawX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* 下層ページの写真帯 */
+.js .page-hero img { animation: heroZoom 2.4s var(--ease-out) both; }
+.js .page-hero__title { animation: maskUp 1.1s .2s var(--ease-out) both; }
+.js .page-hero__en { animation: fadeIn 1s .1s both; }
+@keyframes maskUp { from { clip-path: inset(0 0 100% 0); transform: translateY(32px); } to { clip-path: inset(0 0 -10% 0); transform: none; } }
+
+/* 見出し：英字ラベルの前に線が引かれ、和文がせり上がる */
+.js .section-head__en { display: flex; align-items: center; gap: 12px; }
+.section-head--center .section-head__en { justify-content: center; }
+.js .section-head__en::before { content: ""; width: 32px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease-out); }
+.js .section-head__ja { clip-path: inset(0 0 100% 0); transform: translateY(24px); transition: clip-path 1s .15s var(--ease-out), transform 1s .15s var(--ease-out); }
+.section-head.is-in .section-head__en::before { transform: scaleX(1); }
+.section-head.is-in .section-head__ja { clip-path: inset(-10% -5% -10% -5%); transform: none; }
+
+/* 写真：シャッターが開くように左から現れ、少し引いて止まる */
+/* 監視対象（.wipe）そのものに clip-path を付けると交差判定されないため、中の picture を切り抜く */
+.js .wipe picture { clip-path: inset(0 100% 0 0); transform: scale(1.18); transition: clip-path 1.2s var(--ease-out), transform 1.6s var(--ease-out); }
+.js .wipe.is-in picture { clip-path: inset(0); transform: none; }
+.about__photo--2.wipe picture { transition-delay: .25s; }
+
+/* カード：持ち上がる */
+.card { transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
+.card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(30, 42, 58, .12); }
+.card__img img { transition: transform 1s var(--ease-out); }
+.card:hover .card__img img { transform: scale(1.07); }
+
+/* ボタン・リンク：左から色が満ちる */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(255, 255, 255, .25); transform: translateX(-101%); transition: transform .5s var(--ease-out); }
+.btn:hover::before { transform: none; }
+.btn .arrow, .text-link .arrow { transition: transform .4s var(--ease-out); }
+.btn:hover .arrow, .text-link:hover .arrow { transform: translateX(5px); }
+.base-item { transition: border-color .2s, transform .5s var(--ease-out); }
+.base-item:hover { transform: translateY(-4px); }
+
+/* 流れる文字の帯 */
+.marquee { overflow: hidden; padding-block: clamp(24px, 4vw, 48px); background: var(--color-bg); }
+.marquee__track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee__group { display: flex; align-items: center; gap: clamp(24px, 4vw, 56px); padding-right: clamp(24px, 4vw, 56px); }
+.marquee__word { font-family: var(--font-en); font-weight: 600; font-size: clamp(3.5rem, 11vw, 9rem); line-height: 1; letter-spacing: .02em; color: transparent; -webkit-text-stroke: 1.5px var(--color-brand); white-space: nowrap; }
+.marquee__word--fill { color: var(--color-brand); -webkit-text-stroke: 0; }
+.marquee__dot { width: clamp(10px, 1.4vw, 16px); height: clamp(10px, 1.4vw, 16px); border-radius: 50%; background: var(--color-accent); flex: none; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 拠点マップ：ルートが引かれ、荷物が行き来する */
+.map-route-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.base__map.is-in .map-route-draw { animation: drawRoute 2s .3s var(--ease-out) forwards; }
+@keyframes drawRoute { to { stroke-dashoffset: 0; } }
+.map-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+.map-pulse--2 { animation-delay: 1.2s; }
+@keyframes pulse { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
+.map-mover { opacity: 0; transition: opacity .6s 2s; }
+.base__map.is-in .map-mover { opacity: 1; }
+
+/* 数字：カウントアップ中に桁がぶれないように */
+.numbers__value { font-variant-numeric: tabular-nums; display: inline-block; }
+
+@media (hover: none) {
+  .card:hover, .base-item:hover { transform: none; box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .wipe picture, .js .section-head__ja { clip-path: none; transform: none; }
+  .js .section-head__en::before { transform: none; }
+  .map-route-draw { stroke-dashoffset: 0; }
+  .map-mover { display: none; }
+  .scroll-line { display: none; }
+  .site-header.is-hidden { transform: none; }
+  .marquee__track { transform: none; }
+}

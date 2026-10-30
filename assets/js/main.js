@@ -76,6 +76,96 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
+  /* ---------- 3-2. 動きの演出（「線が走る」） ---------- */
+  var still = reduceMotion.matches || !('IntersectionObserver' in window);
+
+  // トップの見出し「近くて、確か。」を1文字ずつせり上げる（読み上げは元の文のまま）
+  var heroTitle = document.querySelector('.hero__title');
+  if (heroTitle && !still) {
+    heroTitle.setAttribute('aria-label', heroTitle.textContent.replace(/\s+/g, ''));
+    var first = heroTitle.firstChild;
+    if (first && first.nodeType === 3) {
+      var line = document.createElement('span');
+      line.className = 'char-line';
+      line.setAttribute('aria-hidden', 'true');
+      Array.from(first.textContent.trim()).forEach(function (c, i) {
+        var s = document.createElement('span');
+        s.className = 'char';
+        s.style.setProperty('--i', i);
+        s.textContent = c;
+        line.appendChild(s);
+      });
+      heroTitle.replaceChild(line, first);
+      Array.from(heroTitle.querySelectorAll('.hero__title-sub')).forEach(function (el) { el.setAttribute('aria-hidden', 'true'); });
+    }
+  }
+
+  // 写真はシャッターのように開く。見出しは線が引かれてからせり上がる
+  var wipes = document.querySelectorAll('.about__photo, .card__img, .service-detail__img, .base-card__img, .work__img');
+  wipes.forEach(function (el) { el.classList.add('wipe'); });
+  var inTargets = Array.from(wipes).concat(Array.from(document.querySelectorAll('.section-head, .base__map, .numbers')));
+  function countUp(el) {
+    var to = parseInt(el.textContent, 10);
+    if (isNaN(to)) return;
+    var from = to >= 1000 ? to - 40 : 0;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 1400, 1);
+      var eased = 1 - Math.pow(1 - p, 4);
+      el.textContent = String(Math.round(from + (to - from) * eased));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if (still) {
+    inTargets.forEach(function (el) { el.classList.add('is-in'); });
+    document.querySelectorAll('.base__map svg').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
+  } else {
+    var mio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        if (entry.target.classList.contains('numbers')) {
+          entry.target.querySelectorAll('.numbers__value').forEach(countUp);
+        }
+        mio.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    inTargets.forEach(function (el) { mio.observe(el); });
+  }
+
+  // 上部のライン（読み進めた量）、ヘッダーの出し入れ、写真のゆるやかな視差
+  if (!still) {
+    var bar = document.createElement('div');
+    bar.className = 'scroll-line';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    var parallax = document.querySelector('.hero__media, .page-hero picture');
+    var lastY = window.scrollY;
+    var ticking = false;
+    function onMotionScroll() {
+      var y = window.scrollY;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.setProperty('--progress', max > 0 ? (y / max).toFixed(4) : 0);
+      if (header && !document.body.classList.contains('is-menu-open')) {
+        var hide = y > lastY && y > window.innerHeight * 0.6;
+        header.classList.toggle('is-hidden', hide);
+      }
+      if (parallax && y < window.innerHeight * 1.2) {
+        parallax.style.transform = 'translate3d(0,' + (y * 0.3).toFixed(1) + 'px,0)';
+      }
+      lastY = y;
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(onMotionScroll); ticking = true; }
+    }, { passive: true });
+    onMotionScroll();
+    // キーボードでヘッダー内にフォーカスが来たら必ず見せる
+    if (header) header.addEventListener('focusin', function () { header.classList.remove('is-hidden'); });
+  }
+
   /* ---------- 4. ヒーロー動画（使う場合のみ） ---------- */
   var videos = document.querySelectorAll('.hero__video');
   function handleVideos() {
