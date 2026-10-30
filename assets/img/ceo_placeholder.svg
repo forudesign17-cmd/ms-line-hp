@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
-<rect width="600" height="800" fill="#E8F0F9"/>
-<rect x="14" y="14" width="572" height="772" rx="10" fill="none" stroke="#2D6CB5" stroke-opacity=".45" stroke-width="2" stroke-dasharray="10 10"/>
-<g fill="#2D6CB5" fill-opacity=".28"><circle cx="300" cy="300" r="82"/><path d="M130 560c0-96 76-150 170-150s170 54 170 150v30H130z"/></g>
-<g font-family="'Hiragino Sans','Yu Gothic',sans-serif" text-anchor="middle" fill="#23568F">
-<text x="300" y="660" font-size="30" font-weight="700">代表の写真が入ります</text>
-<text x="300" y="706" font-size="22" fill-opacity=".8">縦3：横4 ／ 600×800px 以上</text>
-</g>
-</svg>
