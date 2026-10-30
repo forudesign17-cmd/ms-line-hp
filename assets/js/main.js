@@ -101,11 +101,12 @@
   }
 
   // 写真はシャッターのように開く。見出しは線が引かれてからせり上がる
-  var wipes = document.querySelectorAll('.about__photo, .card__img, .service-detail__img, .base-card__img, .work__img');
+  var wipes = document.querySelectorAll('.about__photo, .card__img, .service-detail__img, .base-card__img, .base__photo, .work__img');
   wipes.forEach(function (el) { el.classList.add('wipe'); });
-  var inTargets = Array.from(wipes).concat(Array.from(document.querySelectorAll('.section-head, .base__map, .numbers')));
+  var inTargets = Array.from(wipes).concat(Array.from(document.querySelectorAll('.section-head, .numbers')));
   function countUp(el) {
-    var to = parseInt(el.textContent, 10);
+    var comma = el.textContent.indexOf(',') !== -1;
+    var to = parseInt(el.textContent.replace(/,/g, ''), 10);
     if (isNaN(to)) return;
     var from = to >= 1000 ? to - 40 : 0;
     var start = null;
@@ -113,14 +114,14 @@
       if (!start) start = ts;
       var p = Math.min((ts - start) / 1400, 1);
       var eased = 1 - Math.pow(1 - p, 4);
-      el.textContent = String(Math.round(from + (to - from) * eased));
+      var v = Math.round(from + (to - from) * eased);
+      el.textContent = comma ? v.toLocaleString('en-US') : String(v);
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
   if (still) {
     inTargets.forEach(function (el) { el.classList.add('is-in'); });
-    document.querySelectorAll('.base__map svg').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
   } else {
     var mio = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

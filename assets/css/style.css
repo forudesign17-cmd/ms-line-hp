@@ -295,11 +295,12 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; line-height: 1.5; 
 
 /* 拠点（地図） */
 .base__grid { align-items: center; row-gap: 40px; }
-.base__map { grid-column: 1 / -1; background: var(--color-surface); border-radius: var(--radius); padding: clamp(16px, 3vw, 32px); }
-.base__map svg { width: 100%; height: auto; }
+.base__photo { grid-column: 1 / -1; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; }
+.base__photo picture, .base__photo img { width: 100%; height: 100%; object-fit: cover; }
+.base__hq { margin-top: 24px; color: var(--color-muted); font-size: var(--fs-small); }
 .base__list { grid-column: 1 / -1; display: grid; gap: 16px; }
 @media (min-width: 1024px) {
-  .base__map { grid-column: 1 / 8; }
+  .base__photo { grid-column: 1 / 8; }
   .base__list { grid-column: 8 / 13; }
 }
 .base-item { display: block; padding: 24px; background: var(--color-surface); border-radius: var(--radius); color: var(--color-ink); border: 1px solid transparent; transition: border-color .2s; }
@@ -617,15 +618,6 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 .marquee__dot { width: clamp(10px, 1.4vw, 16px); height: clamp(10px, 1.4vw, 16px); border-radius: 50%; background: var(--color-accent); flex: none; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* 拠点マップ：ルートが引かれ、荷物が行き来する */
-.map-route-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
-.base__map.is-in .map-route-draw { animation: drawRoute 2s .3s var(--ease-out) forwards; }
-@keyframes drawRoute { to { stroke-dashoffset: 0; } }
-.map-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
-.map-pulse--2 { animation-delay: 1.2s; }
-@keyframes pulse { 0% { transform: scale(.6); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
-.map-mover { opacity: 0; transition: opacity .6s 2s; }
-.base__map.is-in .map-mover { opacity: 1; }
 
 /* 数字：カウントアップ中に桁がぶれないように */
 .numbers__value { font-variant-numeric: tabular-nums; display: inline-block; }
@@ -636,8 +628,6 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 @media (prefers-reduced-motion: reduce) {
   .js .wipe picture, .js .section-head__ja { clip-path: none; transform: none; }
   .js .section-head__en::before { transform: none; }
-  .map-route-draw { stroke-dashoffset: 0; }
-  .map-mover { display: none; }
   .scroll-line { display: none; }
   .site-header.is-hidden { transform: none; }
   .marquee__track { transform: none; }
@@ -747,3 +737,11 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 .seo-level--easy { background: #DDF0E3; color: #1F6B3A; }
 .seo-sub { font-size: var(--fs-h3); margin-top: 36px; }
 .seo-list--num { list-style: decimal; padding-left: 1.5em; }
+
+/* 拠点が1つのときのカード：PCでは、写真と情報を横に並べる */
+@media (min-width: 1024px) {
+  .bases--one { grid-template-columns: 1fr; }
+  .bases--one .base-card { flex-direction: row; }
+  .bases--one .base-card__img { flex: 0 0 48%; aspect-ratio: auto; }
+  .bases--one .base-card__img picture, .bases--one .base-card__img img { height: 100%; }
+}
