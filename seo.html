@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Outfit:wght@500;600&family=Zen+Kaku+Gothic+New:wght@700&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=12">
-<script src="assets/js/main.js?v=12" defer></script>
+<link rel="stylesheet" href="assets/css/style.css?v=13">
+<script src="assets/js/main.js?v=13" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -61,17 +61,34 @@
         <h2>2. 狙うキーワード</h2>
         <div class="table-wrap">
           <table class="seo-table">
-            <thead><tr><th>種類</th><th>ワードの例</th><th>狙うページ</th></tr></thead>
+            <thead><tr><th>種類</th><th>ワードの例</th><th>狙いやすさ</th><th>狙うページ・メモ</th></tr></thead>
             <tbody>
-              <tr><td>社名</td><td>M・Sライン／MSライン／エムエスライン　＋　岡山</td><td>トップ（別表記は構造化データに登録済み）</td></tr>
-              <tr><td>地域 × サービス（依頼）</td><td>岡山市 倉庫 保管／岡山市南区 倉庫／岡山 物流センター 運営／岡山 車両 手配／岡山 物流 アウトソーシング</td><td>トップ・事業内容</td></tr>
-              <tr><td>蒜山・真庭</td><td>真庭市 倉庫／蒜山 倉庫／真庭 物流</td><td>トップ・会社情報</td></tr>
-              <tr><td>採用</td><td>岡山市南区 倉庫 求人／岡山 配車 事務 求人／真庭市 求人 倉庫／蒜山 求人</td><td>採用情報</td></tr>
-              <tr><td>質問・悩み</td><td>倉庫 小ロット 預ける／急な出荷 対応 など</td><td>事業内容（よくあるご質問）</td></tr>
+              <tr><td>広い地域ワード</td><td>岡山 倉庫（単独）</td><td><span class="seo-level seo-level--hard">難しい</span></td><td>トップ（補助）。求人・物流ニュース・大手の倉庫会社が混在し、検索する人の目的がばらばらなので、主役にはしない</td></tr>
+              <tr><td>社名</td><td>M・Sライン／MSライン／エムエスライン　＋　岡山</td><td><span class="seo-level seo-level--easy">取りやすい</span></td><td>トップ。別表記は構造化データに登録済み。社名で探す人には出やすい</td></tr>
+              <tr><td>地域を絞った依頼</td><td>岡山市南区 倉庫／岡山市南区 倉庫保管／岡山市 倉庫 保管</td><td><span class="seo-level seo-level--ok">狙える</span></td><td>トップ・事業内容。競合が少なく、営業所の所在地ともそろう。Googleビジネスプロフィールの登録で、さらに有利</td></tr>
+              <tr><td>サービスを具体的に</td><td>岡山 倉庫保管 小ロット／岡山 物流センター 運営／岡山 車両 手配</td><td><span class="seo-level seo-level--ok">狙える</span></td><td>事業内容。倉庫の広さ・品目・温度管理などを具体的に書くほど有利</td></tr>
+              <tr><td>蒜山・真庭</td><td>真庭市 倉庫／蒜山 倉庫／真庭 物流</td><td><span class="seo-level seo-level--easy">取りやすい</span></td><td>トップ・会社情報。競合が少ない</td></tr>
+              <tr><td>採用</td><td>岡山市南区 倉庫 求人／岡山 配車 事務 求人／真庭市 求人 倉庫／蒜山 求人</td><td><span class="seo-level seo-level--hard">難しい</span></td><td>採用情報。求人サイトが強いため補助と考え、募集が確定したら求人の構造化データ（JobPosting）も併用する</td></tr>
+              <tr><td>質問・悩み</td><td>倉庫 小ロット 預ける／急な出荷 対応 など</td><td><span class="seo-level seo-level--ok">狙える</span></td><td>事業内容（よくあるご質問）。質問を増やすほど拾える</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="muted" style="font-size:var(--fs-small)">※上のワードは一般的な傾向からの想定です。実際の検索数は未確認のため、公開後にSearch Consoleで確認し、見出しを調整します。</p>
+        <p class="muted" style="font-size:var(--fs-small)">※「狙いやすさ」は、検索結果の傾向（2026年10月時点）からの見立てで、実際の順位を保証するものではありません。検索数も未確認のため、公開後にSearch Consoleで確認し、見出しを調整します。</p>
+
+        <h3 class="seo-sub">「岡山 倉庫」で上位に入るのは難しい理由</h3>
+        <ul class="seo-list">
+          <li>検索結果が、求人サイト、物流ニュース、大手の倉庫会社で占められている</li>
+          <li>検索する人の目的がばらばら（求人、貸し倉庫、倉庫会社探し）で、1ページでは捉えきれない</li>
+          <li>公開したばかりのドメインは、評価がたまるまで時間がかかる（検索に出始めるまで数週間、順位がつくまで数か月が目安）</li>
+        </ul>
+
+        <h3 class="seo-sub">順位を上げるためにやること（効果が大きい順）</h3>
+        <ol class="seo-list seo-list--num">
+          <li><strong>Googleビジネスプロフィールを、岡山営業所で登録する。</strong>「岡山 倉庫」のようなワードは、地図の欄に表示されやすく、通常の順位より先に取れる可能性がある</li>
+          <li><strong>点線の枠（※ここに○○が入ります）を、実際の内容に差し替える。</strong>倉庫の広さ、保管できる品目、温度管理の有無、対応エリアなど。内容が薄いと検索で評価されない</li>
+          <li><strong>AI生成のイメージを、実際の写真に差し替える。</strong>倉庫・車両・スタッフの実写で、信頼性が上がる</li>
+          <li><strong>ほかのサイトからリンクを得る。</strong>岡山県倉庫協会や商工会議所などの会員ページに、会社名とリンクを載せてもらう</li>
+        </ol>
       </div>
 
       <div class="seo-sec">

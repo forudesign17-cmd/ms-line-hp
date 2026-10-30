@@ -739,3 +739,11 @@ body.is-menu-open main, body.is-menu-open .closing, body.is-menu-open .site-foot
 .site-footer .btn--light { color: var(--color-ink); }
 .site-footer .btn--light:hover { color: #fff; }
 @media (max-width: 400px) { .btn { gap: 12px; padding-left: 22px; font-size: .9375rem; letter-spacing: .04em; } }
+
+.seo-table { min-width: 760px; }
+.seo-level { display: inline-block; padding: 2px 12px; border-radius: 999px; font-family: var(--font-head); font-weight: 700; font-size: .75rem; white-space: nowrap; }
+.seo-level--hard { background: #FBE7E5; color: #8A1F18; }
+.seo-level--ok { background: #FDEFD9; color: #7A4A00; }
+.seo-level--easy { background: #DDF0E3; color: #1F6B3A; }
+.seo-sub { font-size: var(--fs-h3); margin-top: 36px; }
+.seo-list--num { list-style: decimal; padding-left: 1.5em; }
